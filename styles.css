@@ -1,0 +1,547 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* ===== Fondo unico ===== */
+:root{
+  --app-bg: radial-gradient(1200px 700px at 20% 15%, #182448 0%, #0a1020 42%, #05070d 100%);
+}
+
+html, body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+  background:var(--app-bg) fixed;
+}
+
+/* =========================================================
+   INTRO (search bar + logo Outside)
+   ========================================================= */
+
+#intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--app-bg);
+  z-index:9998;
+}
+
+.intro-search{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:min(420px, 60vw);
+  padding:12px 12px 12px 16px;
+  border-radius:999px;
+  color:#fff;
+  font-size:clamp(14px, 1.8vw, 19px);
+  background:rgba(255,255,255,.13);
+  -webkit-backdrop-filter:blur(20px);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 14px 40px rgba(0,0,0,.4);
+  opacity:0;
+}
+
+.intro-icon{
+  opacity:.75;
+  flex-shrink:0;
+}
+
+#introTyped{
+  white-space:pre;
+}
+
+.intro-caret{
+  width:2px;
+  height:1.2em;
+  background:#fff;
+  margin-left:-8px;
+  animation:caretBlink .8s steps(1) infinite;
+}
+
+@keyframes caretBlink{
+  50%{ opacity:0; }
+}
+
+.intro-go{
+  margin-left:auto;
+  padding:8px 16px;
+  border:0;
+  border-radius:999px;
+  font-size:.75em;
+  font-weight:600;
+  color:#05070d;
+  background:linear-gradient(90deg,#7de3ff,#a7b8ff);
+  pointer-events:none;
+}
+
+.intro-logo{
+  position:absolute;
+  width:min(630px, 90vw);
+  height:auto;
+  opacity:0;
+}
+
+/* =========================================================
+   NOTIFICACIONES VIDRIO (apiladas desde abajo)
+   ========================================================= */
+
+#stage{
+  position:fixed;
+  left:50%;
+  top:18vh;
+  transform:translateX(-50%);
+  width:min(420px, 92vw);
+  height:56vh;
+  display:flex;
+  align-items:flex-end;
+  pointer-events:none;
+  z-index:20;
+  padding:0 8px;
+}
+
+#notifs{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.notif-wrap{
+  width:100%;
+  padding:4px 0;
+  overflow:hidden;
+}
+
+.notif{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:22px;
+  color:#fff;
+  background:rgba(255,255,255,.13);
+  -webkit-backdrop-filter:blur(20px);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.20);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transform-origin:50% 100%;
+}
+
+/* WhatsApp: María izquierda, Juan derecha */
+.notif.side-left{
+  width:80%;
+  margin-right:auto;
+}
+.notif.side-right{
+  width:80%;
+  margin-left:auto;
+}
+
+/* App: alineado a la izquierda */
+.notif.side-app{
+  width:88%;
+  margin-right:auto;
+}
+
+.notif .body{
+  flex:1;
+  min-width:0;
+}
+
+.notif .top{
+  display:flex;
+  justify-content:space-between;
+  font-size:.64rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  opacity:.72;
+}
+
+.notif .name{
+  margin-top:1px;
+  font-weight:700;
+  font-size:.93rem;
+  line-height:1.2;
+}
+
+.notif .msg{
+  margin-top:2px;
+  font-size:.79rem;
+  line-height:1.28;
+  opacity:.94;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.notif .detail{
+  margin-top:1px;
+  font-size:.78rem;
+  line-height:1.28;
+  opacity:.78;
+}
+
+.notif .status{
+  display:inline-block;
+  margin-top:6px;
+  padding:2px 9px;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:600;
+  color:#9dffc4;
+  background:rgba(37,211,102,.16);
+  border:1px solid rgba(37,211,102,.35);
+}
+
+/* Botones dentro de notificación */
+.notif .actions{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.act-btn{
+  flex:1;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  font-size:.8rem;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.act-btn.primary{
+  color:#05070d;
+  border-color:transparent;
+  background:linear-gradient(90deg,#7de3ff,#a7b8ff);
+}
+
+.act-btn.selected{
+  box-shadow:0 0 0 3px rgba(125,227,255,.35);
+}
+
+/* Modo app: icono pequeño a la izquierda */
+.left-app-icon{
+  width:26px;
+  height:26px;
+  border-radius:8px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+/* Modo contacto: avatar + badge */
+.avatar-stack{
+  position:relative;
+  width:42px;
+  height:42px;
+  flex-shrink:0;
+}
+
+.avatar-img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+}
+
+.avatar-app-badge{
+  position:absolute;
+  right:-2px;
+  bottom:-2px;
+  width:15px;
+  height:15px;
+  border-radius:5px;
+  object-fit:cover;
+  border:2px solid rgba(10,16,32,.92);
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+
+/* =========================================================
+   CONTROLES PLAY + PROGRESO
+   ========================================================= */
+
+#controls{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  width:min(420px, 92vw);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:10000;
+  opacity:1;
+  pointer-events:auto;
+}
+
+#playBtn{
+  width:34px;
+  height:34px;
+  flex-shrink:0;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  color:#fff;
+  font-size:.8rem;
+  cursor:pointer;
+}
+
+#playBtn:disabled{
+  opacity:.45;
+  cursor:default;
+}
+
+#progress{
+  flex:1;
+  height:4px;
+  border-radius:4px;
+  background:rgba(255,255,255,.18);
+  overflow:hidden;
+}
+
+#progressBar{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#7de3ff,#a7b8ff);
+}
+
+/* =========================================================
+   ESCENA FINAL SAAS
+   ========================================================= */
+
+#saas-scene{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--app-bg);
+  overflow:hidden;
+  opacity:0;
+  z-index:9999;
+  perspective:1000px;
+  pointer-events:none;
+}
+
+.vignette{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, transparent 38%, rgba(0,0,0,.45) 100%);
+  pointer-events:none;
+}
+
+.saas-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  opacity:0;
+  padding:0 18px;
+}
+
+.saas-number{
+  font-size:clamp(34px, 8vw, 112px);
+  font-weight:900;
+  letter-spacing:.02em;
+  line-height:1.08;
+}
+
+.saas-subtitle{
+  margin-top:10px;
+  color:#c9d7ff;
+  font-size:clamp(16px, 2.2vw, 30px);
+  opacity:.95;
+}
+
+.saas-word{
+  font-size:clamp(30px, 5vw, 72px);
+  font-weight:750;
+  color:#eef3ff;
+  margin:8px 0;
+  text-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+
+.saas-message{
+  font-size:clamp(34px, 6vw, 90px);
+  font-weight:850;
+  line-height:1.1;
+  color:#fff;
+  text-shadow:0 0 18px rgba(124,196,255,.25);
+}
+
+.saas-logo{
+  font-size:clamp(32px, 6.5vw, 100px);
+  font-weight:900;
+  letter-spacing:.01em;
+  line-height:1.1;
+  display:inline-block;
+  color:#fff;
+  text-shadow:0 0 18px rgba(124,196,255,.25);
+}
+
+.saas-logo-sub{
+  margin-top:14px;
+  color:#c9d4ff;
+  font-size:clamp(13px, 2vw, 28px);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.cta-pill{
+  display:inline-block;
+  margin-top:18px;
+  font-size:clamp(12px,1.2vw,15px);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#dce7ff;
+  border:1px solid rgba(166,193,255,.38);
+  padding:10px 16px;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+  box-shadow:0 8px 30px rgba(46,96,255,.2);
+}
+
+.gradient-text{
+  color:#fff;
+  background:linear-gradient(92deg,#a7b8ff 0%,#7de3ff 34%,#ffffff 52%,#8db4ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.char{
+  display:inline-block;
+}
+
+.bg-orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:.14;
+  pointer-events:none;
+}
+
+.orb-1{ width:320px; height:320px; background:#3f7bff; top:10%; left:10%; }
+.orb-2{ width:280px; height:280px; background:#7b5cff; right:10%; bottom:10%; }
+
+.noise{
+  position:absolute;
+  inset:0;
+  opacity:.07;
+  background-image:radial-gradient(rgba(255,255,255,.6) .6px, transparent .6px);
+  background-size:3px 3px;
+  mix-blend-mode:soft-light;
+  pointer-events:none;
+}
+
+/* Replay */
+.replay-btn{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  z-index:10001;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.30);
+  background:rgba(255,255,255,.14);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+}
+
+.replay-btn.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* Mejor rendimiento slide final */
+#slide4,
+#slide4 .saas-logo,
+#slide4 .saas-logo-sub,
+#slide4 .cta-pill{
+  will-change:transform, opacity;
+  backface-visibility:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+
+/* =========================================================
+   MOVIL (solo ajustes finos)
+   ========================================================= */
+@media (max-width:768px){
+  #stage{
+    top:18vh;
+    height:52vh;
+    width:92vw;
+    padding:0 8px;
+  }
+
+  .notif{
+    padding:11px 12px;
+    border-radius:20px;
+  }
+
+  .notif .name{ font-size:.9rem; }
+  .notif .msg{
+    font-size:.77rem;
+    line-height:1.26;
+  }
+
+  .avatar-stack{
+    width:40px;
+    height:40px;
+  }
+
+  #controls{
+    width:92vw;
+    bottom:14px;
+  }
+
+  .notif.side-left,
+  .notif.side-right{
+    width:86%;
+  }
+
+  .notif.side-app{
+    width:94%;
+  }
+
+  .intro-search{
+    width:min(360px, 72vw);
+  }
+
+  .intro-logo{
+    width:min(540px, 92vw);
+  }
+}
