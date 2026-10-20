@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Metro</title>
+
+  <!-- Assets -->
+  <link rel="preload" as="image" href="assets/outside.png">
+
+  <link rel="preload" as="audio" href="assets/typing.wav">
+  <link rel="preload" as="audio" href="assets/click.wav">
+  <link rel="preload" as="audio" href="assets/notification.wav">
+  <link rel="preload" as="audio" href="assets/1.mp3">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body>
+
+  <!-- INTRO OUTSIDE -->
+  <div id="intro">
+
+    <div id="introSearch" class="intro-search">
+
+      <svg
+        class="intro-icon"
+        viewBox="0 0 24 24"
+        width="22"
+        height="22"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round">
+
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="M20 20l-3.5-3.5"></path>
+
+      </svg>
+
+      <span id="introTyped"></span>
+      <span id="introCaret" class="intro-caret"></span>
+
+      <button
+        id="introGo"
+        class="intro-go"
+        tabindex="-1"
+        aria-hidden="true">
+
+        Buscar
+
+      </button>
+
+    </div>
+
+    <img
+      id="introLogo"
+      class="intro-logo"
+      src="assets/outside.png"
+      alt="Outside Co.">
+
+  </div>
+
+  <!-- ESCENARIO PRINCIPAL -->
+  <div id="stage">
+
+    <div id="notifs"></div>
+
+  </div>
+
+  <!-- CONTROLES -->
+  <div
+    id="controls"
+    aria-label="Controles de reproducción">
+
+    <button
+      id="playBtn"
+      aria-label="Play">
+
+      Cargando...
+
+    </button>
+
+    <div id="progress" aria-hidden="true">
+
+      <div id="progressBar"></div>
+
+    </div>
+
+  </div>
+
+  <!-- REPLAY -->
+  <button
+    id="replayBtn"
+    class="replay-btn"
+    aria-label="Replay">
+
+    ↻ Replay
+
+  </button>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
