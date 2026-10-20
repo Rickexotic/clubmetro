@@ -371,7 +371,10 @@ function simulateRedeemClick() {
 /* ---------- Datos ---------- */
 const MARIA = { avatar: "assets/Siwa.png", name: "María", side: "left" };
 const JUAN  = { avatar: "assets/Woki.png", name: "Juan", side: "right" };
-const APP   = { appIcon: "assets/App.png", app: "Club Beneficios" };
+const APP = {
+  appIcon: "assets/App.png",
+  app: "Club Metro"
+};
 
 /* ---------- Escena intermedia ---------- */
 const bridge = document.createElement("div");
@@ -383,10 +386,10 @@ bridge.innerHTML = `
   <div class="bridge-noise"></div>
 
   <div class="bridge-lines" id="bridge-lines">
-    <div class="bridge-line" id="b1">Buscando comercios...</div>
-    <div class="bridge-line" id="b2">Encontrando beneficios...</div>
-    <div class="bridge-line" id="b3">Cargando ofertas...</div>
-    <div class="bridge-line bridge-accent" id="b4">Y alguna sorpresa...</div>
+    <div class="bridge-line" id="b1">Conectando movilidad...</div>
+    <div class="bridge-line" id="b2">Conectando servicios...</div>
+    <div class="bridge-line" id="b3">Conectando cultura...</div>
+    <div class="bridge-line" id="b4">Todo en un solo lugar...</div>
   </div>
 `;
 document.body.appendChild(bridge);
@@ -489,27 +492,35 @@ scene.innerHTML = `
   <div class="noise"></div>
 
   <div id="slide1" class="saas-slide">
-    <div class="saas-number gradient-text">26,5 millones</div>
-    <div class="saas-subtitle">de pasajeros al año</div>
+    <div class="saas-number gradient-text">2,5 millones</div>
+    <div class="saas-subtitle">de pasajeros cada día</div>
   </div>
 
   <div id="slide2" class="saas-slide">
-    <div class="saas-word">Retail</div>
-    <div class="saas-word">Gastronomía</div>
-    <div class="saas-word">Parking</div>
-    <div class="saas-word">Experiencias</div>
-    <div class="saas-word">Convenios</div>
+    <div class="saas-word">Movilidad</div>
+    <div class="saas-word">Comercio</div>
+    <div class="saas-word">Cultura</div>
+    <div class="saas-word">Servicios</div>
+    <div class="saas-word">Beneficios</div>
   </div>
 
   <div id="slide3" class="saas-slide">
     <canvas id="nodesCanvas"></canvas>
-    <div class="saas-message" id="connectedText">Todo conectado.</div>
+    <div class="saas-message" id="connectedText">La ciudad conectada.</div>
   </div>
 
   <div id="slide4" class="saas-slide">
-    <div class="saas-logo" id="logoMain">Club Beneficios</div>
-    <div class="saas-logo-sub">Aeropuerto Santiago</div>
-    <div class="cta-pill">Activa · Reserva · Disfruta</div>
+    <div class="saas-logo" id="logoMain">Metro MUV</div>
+    <div class="saas-logo-sub">Beneficios para cada trayecto</div>
+    <div class="cta-pill">Muévete · Descubre · Disfruta</div>
+<a
+  class="download-btn"
+  href="assets/Propuesta_Club_Metro.pdf"
+  target="_blank"
+>
+  Descargar propuesta ejecutiva
+</a>
+    
   </div>
 `;
 document.body.appendChild(scene);
@@ -802,59 +813,133 @@ const master = gsap.timeline({
   }
 });
 
-/* Conversación WhatsApp inicial */
-master.call(()=>{ showNotif({...MARIA, mode:"contact", text:"Hola 👋", time:"20:45"}); }, null, 0.5);
-master.call(()=>{ showNotif({...MARIA, mode:"contact", text:"Recuerda que llego a las 21:00", time:"20:45"}); }, null, 1.9);
-master.call(()=>{ showNotif({...JUAN, mode:"contact", text:"Por supuesto, te espero 🙌", time:"20:46"}); }, null, 3.4);
-master.call(()=>{ clearNotifs(); }, null, 5.2);
+/* ---------- Inicio experiencia Club Metro ---------- */
 
-/* Música + bloque texto */
-master.call(()=>{ startAppMusic(); }, null, 6.0);
-master.add(buildBridgeTimeline(), 6.0);
+master.call(() => {
+  startAppMusic();
+}, null, 0.5);
 
-/* Diálogo App + Juan (Juan en formato WhatsApp, sin sonido) */
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"Hola Juan. En qué te ayudamos hoy.", text:"", time:"20:47" }); }, null, 10.6);
+/* Bridge */
+master.add(buildBridgeTimeline(), 0.8);
 
-master.call(()=>{ showNotif({ ...JUAN, mode:"contact", text:"Necesito urgente estacionamiento", time:"20:47", silent:true }); }, null, 12.1);
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"🅿 Parking Premium", detail:"Sector P3 · Terminal Internacional", status:"✅ Reserva exitosa", time:"20:47" }); }, null, 13.6);
-
-master.call(()=>{ showNotif({ ...JUAN, mode:"contact", text:"Me gustaría algo para comer. Somos 2", time:"20:47", silent:true }); }, null, 15.1);
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"🍽 Restaurant Internacional", detail:"Mesa para 2 personas", status:"✅ Confirmada 21:15", time:"20:47" }); }, null, 16.6);
-
-master.call(()=>{ showNotif({ ...JUAN, mode:"contact", text:"A lo mejor algún regalo", time:"20:48", silent:true }); }, null, 18.1);
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"🎁 Duty Free", detail:"Regalo comprado", status:"✅ 15% OFF aplicado", time:"20:48" }); }, null, 19.6);
-
-/* Canje de puntos */
+/* Mirador */
 master.call(() => {
   showNotif({
-    ...APP, mode:"app",
-    name:"⭐ Juan, tienes 10.000 puntos",
-    detail:"¿Quieres pagar o canjear tus puntos?",
-    time:"20:48",
+    ...APP,
+    mode:"app",
+    name:"🚲 Bicimetro",
+    detail:"Estación Mirador · 8 espacios disponibles",
+    status:"Disponible ahora",
+    time:"08:00"
+  });
+}, null, 5.5);
+
+/* Vicente Valdés */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"☕ Café",
+    detail:"20% OFF en cafeterías seleccionadas",
+    status:"Vicente Valdés",
+    time:"08:02"
+  });
+}, null, 7.2);
+
+/* Vicuña Mackenna */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"🛍 Comercios asociados",
+    detail:"4 beneficios disponibles cerca tuyo",
+    status:"Explorar",
+    time:"08:05"
+  });
+}, null, 8.9);
+
+/* Ñuble */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"🎁 Beneficio destacado",
+    detail:"Promoción especial de la semana",
+    status:"Activo",
+    time:"08:08"
+  });
+}, null, 10.6);
+
+/* Universidad de Chile */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"📚 Bibliometro",
+    detail:"Libros disponibles para retiro hoy",
+    status:"Universidad de Chile",
+    time:"08:12"
+  });
+}, null, 12.3);
+
+/* Intermodal */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"🚌 Conexión intermodal",
+    detail:"Ruta optimizada disponible",
+    status:"Continuar viaje",
+    time:"08:15"
+  });
+}, null, 14.0);
+
+/* Puntos */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"⭐ Tienes 3.250 puntos",
+    detail:"¿Quieres pagar o canjear?",
+    time:"08:16",
     actions:true
   });
-}, null, 21.3);
+}, null, 15.8);
 
-master.call(()=>{ simulateRedeemClick(); }, null, 22.5);
+master.call(() => {
+  simulateRedeemClick();
+}, null, 17.0);
 
 master.call(() => {
   showNotif({
-    ...APP, mode:"app",
-    name:"⭐ Canje de puntos",
-    detail:"10.000 puntos aplicados",
-    status:"✅ Canje exitoso",
-    time:"20:49"
+    ...APP,
+    mode:"app",
+    name:"✅ Canje realizado",
+    detail:"Tus puntos fueron aplicados correctamente",
+    status:"Exitoso",
+    time:"08:16"
   });
-}, null, 23.7);
+}, null, 18.2);
 
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"Algo más?", time:"20:49" }); }, null, 25.4);
-master.call(()=>{ showNotif({ ...JUAN, mode:"contact", text:"Sorpréndeme", time:"20:49", silent:true }); }, null, 26.9);
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"✅ Todo listo", time:"20:49" }); }, null, 28.4);
+/* Cierre operativo */
+master.call(() => {
+  showNotif({
+    ...APP,
+    mode:"app",
+    name:"🚇 Todo listo",
+    detail:"Beneficios disponibles durante tu trayecto",
+    status:"Club Metro",
+    time:"08:17"
+  });
+}, null, 19.8);
 
-master.call(()=>{ showNotif({ ...APP, mode:"app", name:"Aterrizaje", text:"✈ Tu pasajero ya aterrizó", time:"21:00" }); }, null, 30.1);
+/* Limpieza */
+master.call(() => {
+  clearNotifs();
+}, null, 23.0);
 
 /* Escena final */
-master.add(buildSaaSTimeline(), 32.2);
+master.add(buildSaaSTimeline(), 24.0);
 
 const END = master.duration();
 master.fromTo(SOUNDS.appMusic,
