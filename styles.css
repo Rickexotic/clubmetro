@@ -79,11 +79,12 @@ body{
   border:0;
   border-radius:999px;
   font-size:.75em;
-  font-weight:600;
-  color:#05070d;
-  background:linear-gradient(90deg,#7de3ff,#a7b8ff);
+  font-weight:700;
+  color:#fff;
+  background:#E41E3F;
   pointer-events:none;
 }
+
 
 .intro-logo{
   position:absolute;
@@ -229,9 +230,9 @@ body{
 }
 
 .act-btn.primary{
-  color:#05070d;
+  color:#fff;
   border-color:transparent;
-  background:linear-gradient(90deg,#7de3ff,#a7b8ff);
+  background:#E41E3F;
 }
 
 .act-btn.selected{
@@ -323,7 +324,11 @@ body{
 #progressBar{
   width:0%;
   height:100%;
-  background:linear-gradient(90deg,#7de3ff,#a7b8ff);
+  background:linear-gradient(
+      90deg,
+      #E41E3F,
+      #FF5D76
+  );
 }
 
 /* =========================================================
@@ -428,12 +433,16 @@ body{
 
 .gradient-text{
   color:#fff;
-  background:linear-gradient(92deg,#a7b8ff 0%,#7de3ff 34%,#ffffff 52%,#8db4ff 100%);
+  background:linear-gradient(
+      90deg,
+      #E41E3F,
+      #FF5D76,
+      #FFFFFF
+  );
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-
 .char{
   display:inline-block;
 }
@@ -544,4 +553,37 @@ body{
   .intro-logo{
     width:min(540px, 92vw);
   }
+.download-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:28px;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    background:#E41E3F;
+
+    color:#fff;
+    text-decoration:none;
+
+    font-weight:700;
+    letter-spacing:.02em;
+
+    box-shadow:
+        0 12px 30px rgba(228,30,63,.25);
+
+    transition:.3s ease;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+}
+
+.download-btn:visited{
+    color:#fff;
+}
+  
 }
