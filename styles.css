@@ -6,7 +6,23 @@
 
 /* ===== Fondo unico ===== */
 :root{
-  --app-bg: radial-gradient(1200px 700px at 20% 15%, #182448 0%, #0a1020 42%, #05070d 100%);
+
+  --metro-red:#FF005C;
+
+  --metro-red-light:#FF4B87;
+
+  --metro-grey:#F5F6F8;
+
+  --metro-grey-dark:#6E6E73;
+
+  --app-bg:
+  radial-gradient(
+    circle at top center,
+    #FFFFFF 0%,
+    #FAFAFB 45%,
+    #F1F2F5 100%
+  );
+
 }
 
 html, body{
@@ -35,21 +51,32 @@ body{
 }
 
 .intro-search{
+
   position:absolute;
+
   display:flex;
   align-items:center;
   gap:10px;
-  width:min(420px, 60vw);
+
+  width:min(420px,60vw);
+
   padding:12px 12px 12px 16px;
+
   border-radius:999px;
-  color:#fff;
-  font-size:clamp(14px, 1.8vw, 19px);
-  background:rgba(255,255,255,.13);
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.22);
-  box-shadow:0 14px 40px rgba(0,0,0,.4);
+
+  color:#222;
+
+  font-size:clamp(14px,1.8vw,19px);
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,.06);
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.08);
+
   opacity:0;
+
 }
 
 .intro-icon{
@@ -74,15 +101,25 @@ body{
 }
 
 .intro-go{
+
   margin-left:auto;
+
   padding:8px 16px;
+
   border:0;
+
   border-radius:999px;
+
   font-size:.75em;
+
   font-weight:700;
-  color:#fff;
-  background:#E41E3F;
+
+  color:white;
+
+  background:#FF005C;
+
   pointer-events:none;
+
 }
 
 
@@ -125,21 +162,29 @@ body{
 }
 
 .notif{
-  width:100%;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 14px;
-  border-radius:22px;
-  color:#fff;
-  background:rgba(255,255,255,.13);
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.20);
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-  transform-origin:50% 100%;
-}
 
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:12px 14px;
+
+  border-radius:20px;
+
+  color:#111;
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,.05);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
 /* WhatsApp: María izquierda, Juan derecha */
 .notif.side-left{
   width:80%;
@@ -230,11 +275,12 @@ body{
 }
 
 .act-btn.primary{
-  color:#fff;
-  border-color:transparent;
-  background:#E41E3F;
-}
 
+  color:white;
+
+  background:#FF005C;
+
+}
 .act-btn.selected{
   box-shadow:0 0 0 3px rgba(125,227,255,.35);
 }
@@ -322,13 +368,19 @@ body{
 }
 
 #progressBar{
-  width:0%;
+
+  width:0;
+
   height:100%;
-  background:linear-gradient(
+
+  background:
+
+  linear-gradient(
       90deg,
-      #E41E3F,
-      #FF5D76
+      #FF005C,
+      #FF4B87
   );
+
 }
 
 /* =========================================================
@@ -432,17 +484,20 @@ body{
 }
 
 .gradient-text{
-  color:#fff;
-  background:linear-gradient(
+
+  background:
+  linear-gradient(
       90deg,
-      #E41E3F,
-      #FF5D76,
-      #FFFFFF
+      #FF005C,
+      #FF4B87
   );
+
   -webkit-background-clip:text;
-  background-clip:text;
+
   -webkit-text-fill-color:transparent;
+
 }
+
 .char{
   display:inline-block;
 }
@@ -455,8 +510,13 @@ body{
   pointer-events:none;
 }
 
-.orb-1{ width:320px; height:320px; background:#3f7bff; top:10%; left:10%; }
-.orb-2{ width:280px; height:280px; background:#7b5cff; right:10%; bottom:10%; }
+.orb-1{
+background:#FF005C;
+}
+
+.orb-2{
+background:#FF4B87;
+}
 
 .noise{
   position:absolute;
@@ -554,28 +614,31 @@ body{
     width:min(540px, 92vw);
   }
 .download-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
 
-    margin-top:28px;
+  display:inline-flex;
 
-    padding:14px 28px;
+  align-items:center;
 
-    border-radius:999px;
+  justify-content:center;
 
-    background:#E41E3F;
+  margin-top:30px;
 
-    color:#fff;
-    text-decoration:none;
+  padding:14px 30px;
 
-    font-weight:700;
-    letter-spacing:.02em;
+  border-radius:999px;
 
-    box-shadow:
-        0 12px 30px rgba(228,30,63,.25);
+  background:#FF005C;
 
-    transition:.3s ease;
+  color:white;
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  box-shadow:
+      0 10px 24px
+      rgba(255,0,92,.25);
+
 }
 
 .download-btn:hover{
