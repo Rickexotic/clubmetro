@@ -504,10 +504,55 @@ scene.innerHTML = `
     <div class="saas-word">Beneficios</div>
   </div>
 
-  <div id="slide3" class="saas-slide">
-    <canvas id="nodesCanvas"></canvas>
-    <div class="saas-message" id="connectedText">La ciudad conectada.</div>
-  </div>
+ <div id="slide3" class="saas-slide">
+
+    <div id="metroRoute">
+
+        <div class="station active" id="s1">
+            Mirador
+        </div>
+
+        <div class="route-line"></div>
+
+        <div class="station" id="s2">
+            Bellavista
+        </div>
+
+        <div class="route-line"></div>
+
+        <div class="station" id="s3">
+            Vicente Valdés
+        </div>
+
+        <div class="route-line"></div>
+
+        <div class="station" id="s4">
+            Vicuña Mackenna
+        </div>
+
+        <div class="route-line"></div>
+
+        <div class="station" id="s5">
+            Ñuble
+        </div>
+
+        <div class="route-line"></div>
+
+        <div class="station" id="s6">
+            Universidad de Chile
+        </div>
+
+        <div id="traveler"></div>
+
+    </div>
+
+    <div class="route-caption">
+
+        Cada trayecto conecta oportunidades
+
+    </div>
+
+</div>
 
   <div id="slide4" class="saas-slide">
     <div class="saas-logo" id="logoMain">Metro MUV</div>
