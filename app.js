@@ -510,13 +510,125 @@ scene.innerHTML = `
     <div class="saas-subtitle">de pasajeros cada día</div>
   </div>
 
-  <div id="slide2" class="saas-slide">
-    <div class="saas-word">Movilidad</div>
-    <div class="saas-word">Comercio</div>
-    <div class="saas-word">Cultura</div>
-    <div class="saas-word">Servicios</div>
-    <div class="saas-word">Beneficios</div>
-  </div>
+ <div id="slide2" class="saas-slide">
+
+    <div id="metroJourney">
+
+        <div class="metroSpine" id="metroSpine"></div>
+
+        <div class="stationRow" id="row1">
+
+            <div class="stationNode" id="node1"></div>
+
+            <div class="stationLabel" id="label1">
+                Mirador
+            </div>
+
+            <div class="stationBenefit" id="benefit1">
+
+                <div class="benefitTitle">
+                    🚲 Bicimetro
+                </div>
+
+                <div class="benefitText">
+                    8 espacios disponibles
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stationRow" id="row2">
+
+            <div class="stationNode" id="node2"></div>
+
+            <div class="stationLabel" id="label2">
+                Bellavista de La Florida
+            </div>
+
+            <div class="stationBenefit" id="benefit2">
+
+                <div class="benefitTitle">
+                    ☕ Café
+                </div>
+
+                <div class="benefitText">
+                    20% OFF
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stationRow" id="row3">
+
+            <div class="stationNode" id="node3"></div>
+
+            <div class="stationLabel" id="label3">
+                Vicente Valdés
+            </div>
+
+            <div class="stationBenefit" id="benefit3">
+
+                <div class="benefitTitle">
+                    🛍 Comercios
+                </div>
+
+                <div class="benefitText">
+                    4 beneficios disponibles
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stationRow" id="row4">
+
+            <div class="stationNode" id="node4"></div>
+
+            <div class="stationLabel" id="label4">
+                Vicuña Mackenna
+            </div>
+
+            <div class="stationBenefit" id="benefit4">
+
+                <div class="benefitTitle">
+                    🎁 Beneficio destacado
+                </div>
+
+                <div class="benefitText">
+                    Promoción de la semana
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stationRow" id="row5">
+
+            <div class="stationNode terminal" id="node5"></div>
+
+            <div class="stationLabel destination" id="label5">
+                Universidad de Chile
+            </div>
+
+            <div class="stationBenefit" id="benefit5">
+
+                <div class="benefitTitle">
+                    📚 Bibliometro
+                </div>
+
+                <div class="benefitText">
+                    Disponible hoy
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
   <div id="slide3" class="saas-slide">
 
@@ -669,45 +781,133 @@ function buildSaaSTimeline(){
       {opacity:0, scale:1.18, y:-46, filter:"blur(14px)", duration:.85, ease:"power3.in"},
       "+=1.15");
 
-  // Slide 2 (mismo tratamiento para todos)
-  tl.fromTo("#slide2", { opacity:0 }, { opacity:1, duration:.33 })
-    .fromTo(".saas-word",
-      {
-        opacity:0,
-        x:(i) => (i % 2 === 0 ? -46 : 46),
-        y:42,
-        scale:.84,
-        rotateX:-78,
-        filter:"blur(12px)",
-        transformOrigin:"50% 100%"
-      },
-      {
-        opacity:1, x:0, y:0, scale:1.04, rotateX:0, filter:"blur(0px)",
-        stagger:.14, duration:.65, ease:"power4.out"
-      },
-      "<")
-    .to(".saas-word",
-      { scale:1, duration:.2, stagger:.08, ease:"power2.out" },
-      "<+.2")
-    .to("#slide2",
-      { scale:1.025, duration:.3, yoyo:true, repeat:1, ease:"sine.inOut" },
-      "<+.1")
-    .to(".saas-word",
-      { textShadow:"0 0 26px rgba(140,210,255,.55), 0 0 44px rgba(120,180,255,.3)", duration:.24, yoyo:true, repeat:1, stagger:.09, ease:"sine.inOut" },
-      "<")
-    .to("#slide2",
-      { x:1, duration:.05, repeat:3, yoyo:true, ease:"none" },
-      "<+.05")
-    .to({}, { duration:.8 })
-    .to(".saas-word",
-      {
-        y:-30, opacity:0, scale:.92,
-        x:(i) => (i % 2 === 0 ? 24 : -24),
-        filter:"blur(9px)", stagger:.08, duration:.45, ease:"power2.in"
-      },
-      "<")
-    .to("#slide2", { opacity:0, duration:.22 }, "<+.15");
+ /* ===== METRO JOURNEY ===== */
 
+tl.fromTo(
+    "#slide2",
+    {opacity:0},
+    {opacity:1,duration:.4}
+)
+
+.fromTo(
+    "#metroSpine",
+    {height:0},
+    {
+      height:540,
+      duration:2.5,
+      ease:"power2.out"
+    }
+)
+
+.fromTo(
+    "#node1",
+    {opacity:0,scale:.3},
+    {opacity:1,scale:1,duration:.25}
+)
+
+.fromTo(
+    "#label1",
+    {opacity:0,x:-20},
+    {opacity:1,x:0,duration:.25}
+)
+
+.fromTo(
+    "#benefit1",
+    {opacity:0,x:30},
+    {opacity:1,x:0,duration:.4}
+)
+
+.fromTo(
+    "#node2",
+    {opacity:0,scale:.3},
+    {opacity:1,scale:1,duration:.25}
+)
+
+.fromTo(
+    "#label2",
+    {opacity:0,x:-20},
+    {opacity:1,x:0,duration:.25}
+)
+
+.fromTo(
+    "#benefit2",
+    {opacity:0,x:30},
+    {opacity:1,x:0,duration:.4}
+)
+
+.fromTo(
+    "#node3",
+    {opacity:0,scale:.3},
+    {opacity:1,scale:1,duration:.25}
+)
+
+.fromTo(
+    "#label3",
+    {opacity:0,x:-20},
+    {opacity:1,x:0,duration:.25}
+)
+
+.fromTo(
+    "#benefit3",
+    {opacity:0,x:30},
+    {opacity:1,x:0,duration:.4}
+)
+
+.fromTo(
+    "#node4",
+    {opacity:0,scale:.3},
+    {opacity:1,scale:1,duration:.25}
+)
+
+.fromTo(
+    "#label4",
+    {opacity:0,x:-20},
+    {opacity:1,x:0,duration:.25}
+)
+
+.fromTo(
+    "#benefit4",
+    {opacity:0,x:30},
+    {opacity:1,x:0,duration:.4}
+)
+
+.fromTo(
+    "#node5",
+    {opacity:0,scale:.3},
+    {opacity:1,scale:1,duration:.25}
+)
+
+.fromTo(
+    "#label5",
+    {opacity:0,x:-20},
+    {opacity:1,x:0,duration:.25}
+)
+
+.fromTo(
+    "#benefit5",
+    {opacity:0,x:30},
+    {opacity:1,x:0,duration:.4}
+)
+
+.to(
+    "#node5",
+    {
+      scale:1.2,
+      repeat:1,
+      yoyo:true,
+      duration:.4
+    }
+)
+
+.to(
+    "#slide2",
+    {
+      opacity:0,
+      duration:.8
+    },
+    "+=1.5"
+);
+  
 /* Slide 3 */
 
 tl.fromTo(
