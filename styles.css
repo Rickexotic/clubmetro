@@ -341,17 +341,29 @@ body{
 }
 
 #playBtn{
-  width:34px;
-  height:34px;
+
+  width:42px;
+  height:42px;
+
   flex-shrink:0;
-  border:1px solid rgba(255,255,255,.25);
+
+  border:none;
+
   border-radius:50%;
-  background:rgba(255,255,255,.14);
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  color:#fff;
-  font-size:.8rem;
+
+  background:#FF005C;
+
+  color:white;
+
+  font-size:.9rem;
+
+  font-weight:700;
+
   cursor:pointer;
+
+  box-shadow:
+      0 8px 20px rgba(255,0,92,.30);
+
 }
 
 #playBtn:disabled{
@@ -363,7 +375,8 @@ body{
   flex:1;
   height:4px;
   border-radius:4px;
-  background:rgba(255,255,255,.18);
+  background:rgba(0,0,0,.08);
+}
   overflow:hidden;
 }
 
@@ -537,11 +550,12 @@ background:#FF4B87;
   z-index:10001;
   padding:10px 16px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.30);
-  background:rgba(255,255,255,.14);
+  border:1px solid rgba(0,0,0,.08);
+  background:white;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
   -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
-  color:#fff;
+  color:#111;
   font-size:14px;
   cursor:pointer;
   opacity:0;
@@ -607,6 +621,7 @@ background:#FF4B87;
   }
 
   .intro-search{
+    color:#111;
     width:min(360px, 72vw);
   }
 
