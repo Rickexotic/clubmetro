@@ -676,15 +676,53 @@ tl.fromTo(
 )
 
 .fromTo(
-    "#metroLine",
-    {
-        height:0
-    },
-    {
-        height:350,
-        duration:2,
-        ease:"power2.out"
-    }
+    "#node1",
+    { opacity:0, scale:.4 },
+    { opacity:1, scale:1, duration:.25 }
+)
+
+.to("#segment1", {
+    height:70,
+    duration:.35
+})
+
+.fromTo(
+    "#node2",
+    { opacity:0, scale:.4 },
+    { opacity:1, scale:1, duration:.25 }
+)
+
+.to("#segment2", {
+    height:70,
+    duration:.35
+})
+
+.fromTo(
+    "#node3",
+    { opacity:0, scale:.4 },
+    { opacity:1, scale:1, duration:.25 }
+)
+
+.to("#segment3", {
+    height:70,
+    duration:.35
+})
+
+.fromTo(
+    "#node4",
+    { opacity:0, scale:.4 },
+    { opacity:1, scale:1, duration:.25 }
+)
+
+.to("#segment4", {
+    height:70,
+    duration:.35
+})
+
+.fromTo(
+    "#node5",
+    { opacity:0, scale:.4 },
+    { opacity:1, scale:1, duration:.25 }
 )
 
 .to(
