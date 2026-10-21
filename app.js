@@ -385,12 +385,7 @@ bridge.innerHTML = `
   <div class="bridge-orb bridge-orb-2"></div>
   <div class="bridge-noise"></div>
 
-  <div class="bridge-lines" id="bridge-lines">
-    <div class="bridge-line" id="b1">Conectando movilidad...</div>
-    <div class="bridge-line" id="b2">Conectando servicios...</div>
-    <div class="bridge-line" id="b3">Conectando cultura...</div>
-    <div class="bridge-line" id="b4">Todo en un solo lugar...</div>
-  </div>
+
 `;
 document.body.appendChild(bridge);
 
