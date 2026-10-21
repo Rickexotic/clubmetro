@@ -808,16 +808,85 @@ function buildSaaSTimeline(){
     .to("#slide2", { opacity:0, duration:.22 }, "<+.15");
 
   // Slide 3: red de nodos tenue
-  tl.fromTo("#slide3",{opacity:0},{opacity:1, duration:.5, ease:"power2.out"})
-    .call(() => startNodesBackground(), null, "<")
-    .fromTo("#nodesCanvas",{ opacity:0 },{ opacity:.62, duration:.45, ease:"power2.out" },"<+0.05")
-    .fromTo(connectedChars,
-      {opacity:0, y:24},
-      {opacity:1, y:0, stagger:.03, duration:.5, ease:"power3.out"},
-      "<+0.2")
-    .to("#slide3",{opacity:0, y:-24, duration:.6, ease:"power2.in"},"+=2.4")
-    .call(() => stopNodesBackground(), null, ">");
+tl.fromTo(
+    "#slide3",
+    {opacity:0},
+    {
+      opacity:1,
+      duration:.5
+    }
+)
 
+.fromTo(
+    "#traveler",
+    { x:0 },
+    {
+      x:720,
+      duration:4,
+      ease:"power1.inOut"
+    },
+    "<"
+)
+
+.call(() => {
+
+    document.getElementById("s1").classList.add("active");
+
+}, null, "<")
+
+.call(() => {
+
+    document.getElementById("s2").classList.add("active");
+
+}, null, "+=0.6")
+
+.call(() => {
+
+    document.getElementById("s3").classList.add("active");
+
+}, null, "+=0.6")
+
+.call(() => {
+
+    document.getElementById("s4").classList.add("active");
+
+}, null, "+=0.6")
+
+.call(() => {
+
+    document.getElementById("s5").classList.add("active");
+
+}, null, "+=0.6")
+
+.call(() => {
+
+    document.getElementById("s6").classList.add("active");
+
+}, null, "+=0.6")
+
+.fromTo(
+    ".route-caption",
+    {
+      opacity:0,
+      y:20
+    },
+    {
+      opacity:1,
+      y:0,
+      duration:.6
+    },
+    "-=1"
+)
+
+.to(
+    "#slide3",
+    {
+      opacity:0,
+      y:-24,
+      duration:.6
+    },
+    "+=2"
+);
   tl.addLabel("s4", ">");
   tl.fromTo("#slide4",
       {opacity:0, scale:.94},
