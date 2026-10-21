@@ -522,12 +522,27 @@ scene.innerHTML = `
 
     <div id="metroTest">
 
-        <div id="metroLine"></div>
+        <div class="metroNode" id="node1"></div>
+
+        <div class="metroSegment" id="segment1"></div>
+
+        <div class="metroNode" id="node2"></div>
+
+        <div class="metroSegment" id="segment2"></div>
+
+        <div class="metroNode" id="node3"></div>
+
+        <div class="metroSegment" id="segment3"></div>
+
+        <div class="metroNode" id="node4"></div>
+
+        <div class="metroSegment" id="segment4"></div>
+
+        <div class="metroNode" id="node5"></div>
 
     </div>
 
 </div>
-
   <div id="slide4" class="saas-slide">
     <div class="saas-logo" id="logoMain">Metro MUV</div>
     <div class="saas-logo-sub">Beneficios para cada trayecto</div>
