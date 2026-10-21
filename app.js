@@ -384,8 +384,17 @@ bridge.innerHTML = `
   <div class="bridge-orb bridge-orb-1"></div>
   <div class="bridge-orb bridge-orb-2"></div>
   <div class="bridge-noise"></div>
+  
+<div id="b1"></div>
+<div id="b2"></div>
+<div id="b3"></div>
+<div id="b4"></div>
 
-
+ <div class="bridge-lines" id="bridge-lines"> 
+ <div class="bridge-line" id="b1">
+ Conectando movilidad...
+ </div>
+ </div>
 `;
 document.body.appendChild(bridge);
 
@@ -498,138 +507,16 @@ scene.innerHTML = `
     <div class="saas-word">Servicios</div>
     <div class="saas-word">Beneficios</div>
   </div>
+  
+<div id="slide3" class="saas-slide">
 
-/* ---------- SLIDE 3 METRO ---------- */
+    <div id="metroTest">
 
-tl.fromTo(
-    "#slide3",
-    { opacity:0 },
-    {
-      opacity:1,
-      duration:.3
-    }
-)
+        <div id="metroLine"></div>
 
-.fromTo(
-    "#node1",
-    {
-      opacity:0,
-      scale:.4
-    },
-    {
-      opacity:1,
-      scale:1,
-      duration:.3
-    }
-)
+    </div>
 
-.to(
-    "#track1",
-    {
-      height:80,
-      duration:.45,
-      ease:"power2.out"
-    }
-)
-
-.fromTo(
-    "#node2",
-    {
-      opacity:0,
-      scale:.4
-    },
-    {
-      opacity:1,
-      scale:1,
-      duration:.3
-    }
-)
-
-.to(
-    "#track2",
-    {
-      height:80,
-      duration:.45
-    }
-)
-
-.fromTo(
-    "#node3",
-    {
-      opacity:0,
-      scale:.4
-    },
-    {
-      opacity:1,
-      scale:1,
-      duration:.3
-    }
-)
-
-.to(
-    "#track3",
-    {
-      height:80,
-      duration:.45
-    }
-)
-
-.fromTo(
-    "#node4",
-    {
-      opacity:0,
-      scale:.4
-    },
-    {
-      opacity:1,
-      scale:1,
-      duration:.3
-    }
-)
-
-.to(
-    "#track4",
-    {
-      height:80,
-      duration:.45
-    }
-)
-
-.fromTo(
-    "#node5",
-    {
-      opacity:0,
-      scale:.4
-    },
-    {
-      opacity:1,
-      scale:1,
-      duration:.3
-    }
-)
-
-.fromTo(
-    ".metro-caption",
-    {
-      opacity:0,
-      y:20
-    },
-    {
-      opacity:1,
-      y:0,
-      duration:.6
-    }
-)
-
-.to(
-    "#slide3",
-    {
-      opacity:0,
-      y:-24,
-      duration:.6
-    },
-    "+=2"
-);
+</div>
 
   <div id="slide4" class="saas-slide">
     <div class="saas-logo" id="logoMain">Metro MUV</div>
@@ -734,86 +621,35 @@ function buildSaaSTimeline(){
       "<")
     .to("#slide2", { opacity:0, duration:.22 }, "<+.15");
 
-  // Slide 3: red de nodos tenue
+/* Slide 3 */
+
 tl.fromTo(
     "#slide3",
-    {opacity:0},
+    { opacity:0 },
+    { opacity:1, duration:.5 }
+)
+
+.fromTo(
+    "#metroLine",
     {
-      opacity:1,
-      duration:.5
+        height:0
+    },
+    {
+        height:350,
+        duration:2,
+        ease:"power2.out"
     }
-)
-
-.fromTo(
-    "#traveler",
-    { x:0 },
-    {
-      x:720,
-      duration:4,
-      ease:"power1.inOut"
-    },
-    "<"
-)
-
-.call(() => {
-
-    document.getElementById("s1").classList.add("active");
-
-}, null, "<")
-
-.call(() => {
-
-    document.getElementById("s2").classList.add("active");
-
-}, null, "+=0.6")
-
-.call(() => {
-
-    document.getElementById("s3").classList.add("active");
-
-}, null, "+=0.6")
-
-.call(() => {
-
-    document.getElementById("s4").classList.add("active");
-
-}, null, "+=0.6")
-
-.call(() => {
-
-    document.getElementById("s5").classList.add("active");
-
-}, null, "+=0.6")
-
-.call(() => {
-
-    document.getElementById("s6").classList.add("active");
-
-}, null, "+=0.6")
-
-.fromTo(
-    ".route-caption",
-    {
-      opacity:0,
-      y:20
-    },
-    {
-      opacity:1,
-      y:0,
-      duration:.6
-    },
-    "-=1"
 )
 
 .to(
     "#slide3",
     {
-      opacity:0,
-      y:-24,
-      duration:.6
+        opacity:0,
+        duration:.6
     },
-    "+=2"
+    "+=1"
 );
+  
   tl.addLabel("s4", ">");
   tl.fromTo("#slide4",
       {opacity:0, scale:.94},
