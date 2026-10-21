@@ -774,5 +774,62 @@ background:#FF4B87;
     font-weight:800;
 
 }
+
+  .metro-network{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.metro-node{
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:#FF005C;
+
+    opacity:0;
+
+    transform:scale(.4);
+
+    box-shadow:
+      0 0 18px rgba(255,0,92,.3);
+
+}
+
+.metro-track{
+
+    width:6px;
+
+    height:0;
+
+    background:#FF005C;
+
+    border-radius:999px;
+
+}
+
+.metro-caption{
+
+    margin-top:60px;
+
+    color:#FF005C;
+
+    font-size:clamp(28px,4vw,56px);
+
+    font-weight:800;
+
+    opacity:0;
+
+}
   
 }
