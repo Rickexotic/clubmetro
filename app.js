@@ -102,8 +102,8 @@ if (controlsEl) {
   controlsEl.style.pointerEvents = "auto";
 }
 if (playBtn) {
-  playBtn.disabled = true;
-  playBtn.textContent = "Cargando...";
+  playBtn.disabled = false;
+  playBtn.textContent = "▶";
 }
 
 const introTl = gsap.timeline({
@@ -1114,10 +1114,12 @@ replayBtn.addEventListener("click", ()=>{
 
 /* ---------- Boot ---------- */
 (async function boot() {
-  await preloadAssets();
+
+  preloadAssets().catch(() => {});
 
   if (playBtn) {
     playBtn.disabled = false;
     playBtn.textContent = "▶";
   }
+
 })();
