@@ -499,55 +499,137 @@ scene.innerHTML = `
     <div class="saas-word">Beneficios</div>
   </div>
 
- <div id="slide3" class="saas-slide">
+/* ---------- SLIDE 3 METRO ---------- */
 
-    <div id="metroRoute">
+tl.fromTo(
+    "#slide3",
+    { opacity:0 },
+    {
+      opacity:1,
+      duration:.3
+    }
+)
 
-        <div class="station active" id="s1">
-            Mirador
-        </div>
+.fromTo(
+    "#node1",
+    {
+      opacity:0,
+      scale:.4
+    },
+    {
+      opacity:1,
+      scale:1,
+      duration:.3
+    }
+)
 
-        <div class="route-line"></div>
+.to(
+    "#track1",
+    {
+      height:80,
+      duration:.45,
+      ease:"power2.out"
+    }
+)
 
-        <div class="station" id="s2">
-            Bellavista
-        </div>
+.fromTo(
+    "#node2",
+    {
+      opacity:0,
+      scale:.4
+    },
+    {
+      opacity:1,
+      scale:1,
+      duration:.3
+    }
+)
 
-        <div class="route-line"></div>
+.to(
+    "#track2",
+    {
+      height:80,
+      duration:.45
+    }
+)
 
-        <div class="station" id="s3">
-            Vicente Valdés
-        </div>
+.fromTo(
+    "#node3",
+    {
+      opacity:0,
+      scale:.4
+    },
+    {
+      opacity:1,
+      scale:1,
+      duration:.3
+    }
+)
 
-        <div class="route-line"></div>
+.to(
+    "#track3",
+    {
+      height:80,
+      duration:.45
+    }
+)
 
-        <div class="station" id="s4">
-            Vicuña Mackenna
-        </div>
+.fromTo(
+    "#node4",
+    {
+      opacity:0,
+      scale:.4
+    },
+    {
+      opacity:1,
+      scale:1,
+      duration:.3
+    }
+)
 
-        <div class="route-line"></div>
+.to(
+    "#track4",
+    {
+      height:80,
+      duration:.45
+    }
+)
 
-        <div class="station" id="s5">
-            Ñuble
-        </div>
+.fromTo(
+    "#node5",
+    {
+      opacity:0,
+      scale:.4
+    },
+    {
+      opacity:1,
+      scale:1,
+      duration:.3
+    }
+)
 
-        <div class="route-line"></div>
+.fromTo(
+    ".metro-caption",
+    {
+      opacity:0,
+      y:20
+    },
+    {
+      opacity:1,
+      y:0,
+      duration:.6
+    }
+)
 
-        <div class="station" id="s6">
-            Universidad de Chile
-        </div>
-
-        <div id="traveler"></div>
-
-    </div>
-
-    <div class="route-caption">
-
-        Cada trayecto conecta oportunidades
-
-    </div>
-
-</div>
+.to(
+    "#slide3",
+    {
+      opacity:0,
+      y:-24,
+      duration:.6
+    },
+    "+=2"
+);
 
   <div id="slide4" class="saas-slide">
     <div class="saas-logo" id="logoMain">Metro MUV</div>
