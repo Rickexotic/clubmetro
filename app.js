@@ -384,18 +384,28 @@ bridge.innerHTML = `
   <div class="bridge-orb bridge-orb-1"></div>
   <div class="bridge-orb bridge-orb-2"></div>
   <div class="bridge-noise"></div>
-  
-<div id="b1"></div>
-<div id="b2"></div>
-<div id="b3"></div>
-<div id="b4"></div>
 
- <div class="bridge-lines" id="bridge-lines"> 
- <div class="bridge-line" id="b1">
- Conectando movilidad...
- </div>
- </div>
+  <div class="bridge-lines" id="bridge-lines">
+
+      <div class="bridge-line" id="b1">
+          Conectando movilidad...
+      </div>
+
+      <div class="bridge-line" id="b2">
+          Conectando servicios...
+      </div>
+
+      <div class="bridge-line" id="b3">
+          Conectando cultura...
+      </div>
+
+      <div class="bridge-line bridge-accent" id="b4">
+          Todo en un solo lugar...
+      </div>
+
+  </div>
 `;
+
 document.body.appendChild(bridge);
 
 const bridgeStyle = document.createElement("style");
@@ -553,7 +563,6 @@ sceneStyle.textContent = `
 `;
 document.head.appendChild(sceneStyle);
 
-const connectedChars = splitChars("#connectedText");
 const logoChars = splitChars("#logoMain");
 
 
@@ -848,13 +857,11 @@ replayBtn.addEventListener("click", ()=>{
   notifs.innerHTML = "";
   stopAppMusic();
   stopTypingSound();
-  stopNodesBackground();
-  progressBar.style.width = "0%";
+   progressBar.style.width = "0%";
 
   gsap.set("#stage", { clearProps: "all" });
   gsap.set("#saas-scene", { opacity: 0 });
   gsap.set("#bridge-scene", { opacity: 0, scale: 1 });
-  gsap.set("#nodesCanvas", { opacity: 0 });
   gsap.set("#b1, #b2, #b3, #b4", { clearProps: "all" });
   gsap.set("#bridge-lines", { clearProps: "all" });
   gsap.set("#introSearch", { clearProps: "all" });
