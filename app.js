@@ -399,7 +399,7 @@ bridge.innerHTML = `
           Conectando cultura...
       </div>
 
-      <div class="bridge-line bridge-accent" id="b4">
+      <div class="bridge-line" id="b4">
           Todo en un solo lugar...
       </div>
 
