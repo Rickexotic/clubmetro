@@ -13,7 +13,7 @@ const PRELOAD_IMAGES = [
 ];
 
 const PRELOAD_AUDIOS = [
-  "assets/typing.wav",
+  "assets/typing.m4a",
   "assets/click.wav",
   "assets/notification.wav",
   "assets/1.mp3"
@@ -73,7 +73,7 @@ const introTyped = document.getElementById("introTyped");
 const INTRO_TEXT = "Outside Co.";
 const typing = { n: 0 };
 
-const typingSound = new Audio("assets/typing.wav");
+const typingSound = new Audio("assets/typing.m4a");
 typingSound.preload = "auto";
 typingSound.volume = 0.75;
 typingSound.loop = true;
@@ -84,7 +84,7 @@ function startTypingSound() {
   typingSound.loop = true;
   typingSound.volume = 0.75;
   typingSound.play().catch((e) => {
-    console.warn("typing.wav bloqueado:", e);
+    console.warn("typing.m4a bloqueado:", e);
   });
 }
 
