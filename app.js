@@ -545,23 +545,45 @@ scene.innerHTML = `
 document.body.appendChild(scene);
 
 const sceneStyle = document.createElement("style");
+
 sceneStyle.textContent = `
-  #slide3{ overflow:hidden; }
-  #nodesCanvas{
-    position:absolute;
-    inset:0;
+
+#slide3{
+    overflow:hidden;
+}
+
+#metroTest{
+
     width:100%;
     height:100%;
-    opacity:0;
-    pointer-events:none;
-    z-index:0;
-  }
-  #slide3 .saas-message{
-    position:relative;
-    z-index:2;
-  }
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+#metroLine{
+
+    width:10px;
+
+    height:0;
+
+    border-radius:999px;
+
+    background:#FF005C;
+
+    box-shadow:
+        0 0 30px rgba(255,0,92,.30);
+
+}
+
 `;
+
 document.head.appendChild(sceneStyle);
+
 
 const logoChars = splitChars("#logoMain");
 
