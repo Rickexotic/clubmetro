@@ -815,19 +815,6 @@ background:#FF4B87;
 
 }
 
-  #metroTest{
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
 
 .metroNode{
 
@@ -856,6 +843,84 @@ background:#FF4B87;
     background:#FF005C;
 
     border-radius:999px;
+
+}
+  #metroTest{
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    gap:0;
+
+}
+
+.metroStation{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.metroNode{
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    background:#FF005C;
+
+    opacity:0;
+
+    transform:scale(.35);
+
+    box-shadow:
+      0 0 20px rgba(255,0,92,.35);
+
+}
+
+.metroSegment{
+
+    width:6px;
+
+    height:0;
+
+    background:#FF005C;
+
+    margin-left:9px;
+
+    border-radius:999px;
+
+}
+
+.metroLabel{
+
+    color:#6E6E73;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    opacity:0;
+
+}
+
+.metroLabel.terminal{
+
+    color:#FF005C;
+
+    font-weight:800;
 
 }
 
