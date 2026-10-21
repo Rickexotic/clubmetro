@@ -517,32 +517,73 @@ scene.innerHTML = `
     <div class="saas-word">Servicios</div>
     <div class="saas-word">Beneficios</div>
   </div>
-  
-<div id="slide3" class="saas-slide">
+
+  <div id="slide3" class="saas-slide">
 
     <div id="metroTest">
 
-        <div class="metroNode" id="node1"></div>
+        <div class="metroStation">
+
+            <div class="metroNode" id="node1"></div>
+
+            <div class="metroLabel" id="label1">
+                Mirador
+            </div>
+
+        </div>
 
         <div class="metroSegment" id="segment1"></div>
 
-        <div class="metroNode" id="node2"></div>
+        <div class="metroStation">
+
+            <div class="metroNode" id="node2"></div>
+
+            <div class="metroLabel" id="label2">
+                Bellavista de La Florida
+            </div>
+
+        </div>
 
         <div class="metroSegment" id="segment2"></div>
 
-        <div class="metroNode" id="node3"></div>
+        <div class="metroStation">
+
+            <div class="metroNode" id="node3"></div>
+
+            <div class="metroLabel" id="label3">
+                Vicente Valdés
+            </div>
+
+        </div>
 
         <div class="metroSegment" id="segment3"></div>
 
-        <div class="metroNode" id="node4"></div>
+        <div class="metroStation">
+
+            <div class="metroNode" id="node4"></div>
+
+            <div class="metroLabel" id="label4">
+                Vicuña Mackenna
+            </div>
+
+        </div>
 
         <div class="metroSegment" id="segment4"></div>
 
-        <div class="metroNode" id="node5"></div>
+        <div class="metroStation">
+
+            <div class="metroNode" id="node5"></div>
+
+            <div class="metroLabel terminal" id="label5">
+                Universidad de Chile
+            </div>
+
+        </div>
 
     </div>
 
 </div>
+
   <div id="slide4" class="saas-slide">
     <div class="saas-logo" id="logoMain">Metro MUV</div>
     <div class="saas-logo-sub">Beneficios para cada trayecto</div>
@@ -671,14 +712,25 @@ function buildSaaSTimeline(){
 
 tl.fromTo(
     "#slide3",
-    { opacity:0 },
-    { opacity:1, duration:.5 }
+    {
+        opacity:0
+    },
+    {
+        opacity:1,
+        duration:.5
+    }
 )
 
 .fromTo(
     "#node1",
-    { opacity:0, scale:.4 },
+    { opacity:0, scale:.35 },
     { opacity:1, scale:1, duration:.25 }
+)
+
+.fromTo(
+    "#label1",
+    { opacity:0, x:-20 },
+    { opacity:1, x:0, duration:.25 }
 )
 
 .to("#segment1", {
@@ -688,8 +740,14 @@ tl.fromTo(
 
 .fromTo(
     "#node2",
-    { opacity:0, scale:.4 },
+    { opacity:0, scale:.35 },
     { opacity:1, scale:1, duration:.25 }
+)
+
+.fromTo(
+    "#label2",
+    { opacity:0, x:-20 },
+    { opacity:1, x:0, duration:.25 }
 )
 
 .to("#segment2", {
@@ -699,8 +757,14 @@ tl.fromTo(
 
 .fromTo(
     "#node3",
-    { opacity:0, scale:.4 },
+    { opacity:0, scale:.35 },
     { opacity:1, scale:1, duration:.25 }
+)
+
+.fromTo(
+    "#label3",
+    { opacity:0, x:-20 },
+    { opacity:1, x:0, duration:.25 }
 )
 
 .to("#segment3", {
@@ -710,8 +774,14 @@ tl.fromTo(
 
 .fromTo(
     "#node4",
-    { opacity:0, scale:.4 },
+    { opacity:0, scale:.35 },
     { opacity:1, scale:1, duration:.25 }
+)
+
+.fromTo(
+    "#label4",
+    { opacity:0, x:-20 },
+    { opacity:1, x:0, duration:.25 }
 )
 
 .to("#segment4", {
@@ -721,8 +791,24 @@ tl.fromTo(
 
 .fromTo(
     "#node5",
-    { opacity:0, scale:.4 },
+    { opacity:0, scale:.35 },
     { opacity:1, scale:1, duration:.25 }
+)
+
+.fromTo(
+    "#label5",
+    { opacity:0, x:-20 },
+    { opacity:1, x:0, duration:.25 }
+)
+
+.to(
+    "#node5",
+    {
+        scale:1.2,
+        repeat:1,
+        yoyo:true,
+        duration:.3
+    }
 )
 
 .to(
@@ -731,7 +817,7 @@ tl.fromTo(
         opacity:0,
         duration:.6
     },
-    "+=1"
+    "+=1.5"
 );
   
   tl.addLabel("s4", ">");
