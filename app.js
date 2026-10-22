@@ -286,9 +286,18 @@
     });
 
     // Puntos y canje
-   
-      .to(".st-row:last-child .st-node", { scale: 1.3, repeat: 1, yoyo: true, duration: 0.3 }, ">")
-      .call(() => showNotif({ name: "⭐ Tienes 3.250 puntos", detail: "¿Quieres pagar o canjear?", time: "08:16", actions: true }), null, ">")
+    tl.to(`.st-row[data-i="${STATIONS.length - 1}"] .st-node`, {
+       scale: 1.3,
+       repeat: 1,
+       yoyo: true,
+       duration: 0.3
+       }, ">")
+       .call(() => showNotif({
+  name: "⭐ Tienes 3.250 puntos",
+  detail: "¿Quieres pagar o canjear?",
+  time: "08:16",
+  actions: true
+}), null, ">")
       .call(simulateRedeemClick, null, "+=1.3")
       .call(() => showNotif({ name: "✅ Canje realizado", detail: "Tus puntos fueron aplicados correctamente", status: "Exitoso", time: "08:16" }), null, "+=0.9")
       .to({}, { duration: 1.4 }, ">")
