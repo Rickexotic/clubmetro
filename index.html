@@ -1,117 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Club Metro - Demo</title>
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Metro</title>
+  <link rel="preload" as="image" href="assets/outside.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
-  <main id="app">
-    <!-- Stage principal -->
-    <section id="stage">
-      <div id="notifs" aria-live="polite"></div>
 
-      <!-- Intro -->
-      <div id="intro" class="intro">
-        <div class="intro-card" id="introSearch">
-          <div class="intro-top">Buscando...</div>
-          <div class="intro-typed" id="introTyped"></div>
-          <div class="intro-go" id="introGo">Entrar</div>
-        </div>
-        <div id="introLogo" class="intro-logo">Outside Co.</div>
-      </div>
+  <div id="intro">
+    <div id="introSearch" class="intro-search">
+      <svg class="intro-icon" viewBox="0 0 24 24" width="22" height="22" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="M20 20l-3.5-3.5"></path>
+      </svg>
+      <span id="introTyped"></span>
+      <span id="introCaret" class="intro-caret"></span>
+      <button id="introGo" class="intro-go" tabindex="-1" aria-hidden="true">Buscar</button>
+    </div>
+    <img id="introLogo" class="intro-logo" src="assets/outside.png" alt="Outside Co.">
+  </div>
 
-      <!-- Bridge -->
-      <div id="bridge-scene">
-        <div class="bridge-vignette"></div>
-        <div class="bridge-orb bridge-orb-1"></div>
-        <div class="bridge-orb bridge-orb-2"></div>
-        <div class="bridge-noise"></div>
+  <div id="stage">
+    <div id="notifs"></div>
+  </div>
 
-        <div class="bridge-lines" id="bridge-lines">
-          <div class="bridge-line" id="b1">Conectando movilidad...</div>
-          <div class="bridge-line" id="b2">Conectando servicios...</div>
-          <div class="bridge-line" id="b3">Conectando cultura...</div>
-          <div class="bridge-line bridge-accent" id="b4">Todo en un solo lugar...</div>
-        </div>
-      </div>
+  <div id="controls" aria-label="Controles de reproducción">
+    <button id="playBtn" aria-label="Play">▶</button>
+    <div id="progress" aria-hidden="true"><div id="progressBar"></div></div>
+  </div>
 
-      <!-- Escena Metro simple -->
-      <div id="metro-scene">
-        <div class="vignette"></div>
-        <div class="bg-orb orb-1"></div>
-        <div class="bg-orb orb-2"></div>
-        <div class="noise"></div>
+  <button id="replayBtn" class="replay-btn" aria-label="Replay">↻ Replay</button>
 
-        <!-- Fondo mapa -->
-        <div class="metro-map-bg" aria-hidden="true"></div>
-
-        <div id="slideA" class="metro-slide">
-          <div class="kpi-number">2,5 millones</div>
-          <div class="kpi-sub">de pasajeros cada día</div>
-        </div>
-
-        <div id="slideB" class="metro-slide">
-          <div id="metroSimple">
-            <div class="metro-line"></div>
-            <div class="metro-traveler" id="metroTraveler"></div>
-
-            <div class="station station-1">
-              <div class="node" id="s1-node"></div>
-              <div class="label" id="s1-label">Mirador</div>
-              <div class="benefit" id="s1-benefit">🚲 Bicimetro disponible</div>
-            </div>
-
-            <div class="station station-2">
-              <div class="node" id="s2-node"></div>
-              <div class="label" id="s2-label">Bellavista de La Florida</div>
-              <div class="benefit" id="s2-benefit">☕ Café 20% OFF</div>
-            </div>
-
-            <div class="station station-3">
-              <div class="node" id="s3-node"></div>
-              <div class="label" id="s3-label">Vicente Valdés</div>
-              <div class="benefit" id="s3-benefit">🛍 Comercios asociados</div>
-            </div>
-
-            <div class="station station-4">
-              <div class="node" id="s4-node"></div>
-              <div class="label" id="s4-label">Vicuña Mackenna</div>
-              <div class="benefit" id="s4-benefit">🎁 Promo de la semana</div>
-            </div>
-
-            <div class="station station-5">
-              <div class="node terminal" id="s5-node"></div>
-              <div class="label destination" id="s5-label">Universidad de Chile</div>
-              <div class="benefit" id="s5-benefit">📚 Bibliometro activo</div>
-            </div>
-          </div>
-        </div>
-
-        <div id="slideC" class="metro-slide">
-          <div class="brand" id="brandTitle">Metro MUV</div>
-          <div class="brand-sub">Beneficios para cada trayecto</div>
-          <div class="cta-pill">Muévete · Descubre · Disfruta</div>
-          <a class="download-btn" href="assets/Propuesta_Club_Metro.pdf" target="_blank" rel="noopener">
-            Descargar propuesta ejecutiva
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Controles -->
-    <section id="controls">
-      <button id="playBtn" type="button">▶</button>
-      <button id="replayBtn" type="button">↺</button>
-      <div class="progress-track">
-        <div id="progressBar"></div>
-      </div>
-    </section>
-  </main>
+  <script src="app.js"></script>
 </body>
 </html>
