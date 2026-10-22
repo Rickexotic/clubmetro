@@ -286,7 +286,7 @@
     });
 
     // Puntos y canje
-    tl.to("#st-pulse-dummy", { duration: 0 }, ">") // no-op para mantener orden
+   
       .to(".st-row:last-child .st-node", { scale: 1.3, repeat: 1, yoyo: true, duration: 0.3 }, ">")
       .call(() => showNotif({ name: "⭐ Tienes 3.250 puntos", detail: "¿Quieres pagar o canjear?", time: "08:16", actions: true }), null, ">")
       .call(simulateRedeemClick, null, "+=1.3")
